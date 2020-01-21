@@ -1,0 +1,8 @@
+{
+  "host" : "192.168.3.22:27017",
+  "user" : "ridescooti",
+  "password" : "dhuahuyeRas",
+  "authsource" : "ridescooti",
+  "databaseName":"ridescooti"
+}
+

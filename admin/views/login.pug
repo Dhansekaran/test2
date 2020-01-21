@@ -1,0 +1,48 @@
+extends template
+
+block layout-content
+  div(class='login_outer')
+    div(class='inner_login')
+      div(class='login_header')
+        div(class='loginLogo')
+          a(href='/' target='_blank')
+            img(src='images/logo.png')
+        div(class='header_login_rgt')
+          ul
+            li
+              a(href='/' title='Main Website')
+                i(class='icon-reply')
+                span Main Website
+            li
+              a(href='/admin' title='Contact Admin')
+                i(class='icon-user')
+                span Contact Admin
+            li
+              a(href='http://www.ndottech.com' title='Support' target='_blank')
+                i(class='icon-comments')
+                span Support
+      div(class='loginWrapper')
+        div(class='loginWrapper_inner')
+          div(class='login_box')
+            div(class='title')
+              h6 Administrator Login
+            form(class='form_login' method='post' name='frmlogin' id='frmlogin')
+              fieldset
+                div(class='log_form_control')
+                  - var email_value = (postdata!=undefined && postdata.email!=undefined && postdata.email!='') ? postdata.email : "";
+                  input(class='form_control' placeholder='Email Address' tabindex='1' type='text' id='email' name='email' maxlength='50' value=`${email_value}` )
+                  if(errors!=undefinded && errors.email!=undefined && errors.email.message!=undefined && errors.email.message!='')
+                    span(class="error") #{errors.email.message}
+                div(class='log_form_control pass_field')
+                  - var password_value = (postdata!=undefined && postdata.password!=undefined && postdata.password!='') ? postdata.password : "";
+                  input(class='form_control' placeholder='Password' tabindex='2' type='password' name='password' maxlength='30' autocomplete='off' )
+                  if(errors!=undefinded && errors.password!=undefined && errors.password.message!=undefined && errors.password.message!='')
+                    span(class="error") #{errors.password.message}
+                  div(class='rememberMe')
+                    a(href='/admin/forgot_password' tabindex='3' class='frgtpsd' title='Forgot?') Forgot?
+                div(class='log_form_control remember_text')
+                  p
+                    input(type='checkbox' name='remember_me' value='1' tabindex='4')
+                    span Remember Me
+                div(class='loginControl')
+                  input(type='submit' value='Login' name='admin_login' tabindex='5' title='Login')
